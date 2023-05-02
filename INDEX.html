@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+    <title>CONVERSION TABLE (TEMPERATURE)</title>
+<style type="text/css">
+  h1, h2, h3{
+  font-family: Roboto Mono;
+  font-weight: bolder;
+  }
+  p, td{
+  font-family: Raleway;
+  font-weight: bolder;
+  }
+ 	nav{
+		font-family: Gloock;
+	}
+img{
+	width: 100%;
+	height: 100%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="number"],
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0077cc;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: #cc0000;
+}
+
+#result {
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+body{
+	background-color: #66CAFF;
+}
+	</style>
+<hr>
+</head>
+
+	<nav class="navbar navbar-expand-lg navbar-secondary bg-primary justify-content-between">
+	<a class="navbar-brand text-light">Temperature Conversion Hub: Where Degrees Meet Their Match</a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a href="#" class="nav-link text-light">HOME</a></li>
+			<li class="nav-item"><a href="#" class="nav-link text-light">ABOUT</a></li>
+			<li class="nav-item"><a href="#" class="nav-link text-light">MORE CONVERSION TABLES</a></li>
+		</ul>
+	</nav>
+
+<body class="container">
+<hr>
+<center>
+	<h2>Temperature Conversion</h2>
+<p id="date" class="btn"></p>
+
+<script type="text/javascript">
+    const DT = new Date();//constant declaration for date object
+    document.getElementById('date').innerHTML = DT;
+</script>
+
+<div class="row">
+<div class="dvb col-6">
+	<img src="https://sciencenotes.org/wp-content/uploads/2021/08/How-to-Convert-Celsius-to-Fahrenheit.png">
+</div>
+
+<div class="dvv col-6">
+<img src="https://sciencenotes.org/wp-content/uploads/2021/08/How-to-Convert-Fahrenheit-to-Celsius-1024x683.png">
+</div>
+</div>
+
+<center>
+<form>
+  <label for="temp-value">Temperature Value:</label>
+  <input id="temp-value" type="number" placeholder="Enter temperature" required>
+
+  <label for="temp-type">Conversion Type:</label>
+  <select id="temp-type">
+    <option value="Fahrenheit">Fahrenheit to Celsius</option>
+    <option value="Celsius">Celsius to Fahrenheit</option>
+  </select>
+
+  <button type="button" id="convert-btn">Convert</button>
+  <button type="reset">Clear</button>
+
+  <label for="result">Result:</label>
+  <input id="result" type="text" readonly>
+</form>
+
+<script type="text/javascript">
+	function convertTemp() {
+  const tempValue = document.getElementById("temp-value").value;
+  const tempType = document.getElementById("temp-type").value;
+  let convertedTemp;
+
+  if (tempType === "Fahrenheit") {
+    convertedTemp = ((tempValue - 32) * 5) / 9;
+  } else {
+    convertedTemp = (tempValue * 9) / 5 + 32;
+  }
+
+  document.getElementById("result").value = convertedTemp.toFixed(2);
+}
+
+document.getElementById("convert-btn").addEventListener("click", convertTemp);
+</script>
+</div>
+</center>
+
+<table class="table table-striped table-primary table-hover container">
+<hr>
+<h3 class="text-primary">Celsius to Fahrenheit (Vice Versa) Conversion Table</h3>
+<hr>
+	<tr>
+		<th>Celsius (0C) </th>
+		<th>Fahrenheit (0F)</th>
+		<th>Description</th>
+	</tr>
+
+	<tr>
+		<td>-273.15</td>
+		<td>-459.67</td>
+		<td>Absolute zero temperature</td>
+	</tr>
+	<tr>
+		<td>0</td>
+		<td>32.0</td>
+		<td>Freezing/melting point of water</td>
+	</tr>
+	<tr>
+		<td>21</td>
+		<td>69.8</td>
+		<td>Room temperature</td>
+	</tr>
+	<tr>
+		<td>37</td>
+		<td>98.6</td>
+		<td>Average body temperature</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>212.0</td>
+		<td>Boiling point of water</td>
+	</tr>
+</table>	
+
+
+</body>
+</html>
